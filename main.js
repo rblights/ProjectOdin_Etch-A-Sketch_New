@@ -1,5 +1,5 @@
 import { Game_Controller } from "./Controller/Game_Controller.js"
 
 document.addEventListener('DOMContentLoaded', () => {
-    const GAME_CONTROLLER = new Game_Controller();
+    this._game_Controller = new Game_Controller();
 })
