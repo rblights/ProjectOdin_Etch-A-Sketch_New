@@ -2,12 +2,12 @@ import { Sketchpad_Controller } from "./Sketchpad_Controller.js";
 import { SliderBar_Controller } from "./SliderBar_Controller.js";
 
 class Game_Controller {
-    constructor() {
-        this._sliderBar_Controller = new SliderBar_Controller();
-        this._sketchpad_Controller = new Sketchpad_Controller(this._sliderBar_Controller._sliderBar_Model.value);
+    #sliderBar_Controller;
+    #sketchpad_Controller;
 
-        document.body.appendChild(this._sketchpad_Controller._sketchpad_View._sketchpad_Element);
-        document.body.appendChild(this._sliderBar_Controller._sliderBar_View._sliderBar_Element);
+    constructor() {
+        this.#sliderBar_Controller = new SliderBar_Controller();
+        this.#sketchpad_Controller = new Sketchpad_Controller(this.#sliderBar_Controller.getSliderBar_Model().getValue());
     }
 }
 export {Game_Controller};
