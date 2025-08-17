@@ -6,13 +6,15 @@ class SliderBar_View {
         this.#sliderBar_Element = document.createElement("input");
         this.#sliderBar_Element.className = "SliderBar"
         this.#sliderBar_Element.type = "range";
-        this.#sliderBar_Element.min = sliderBar_Model.min;
-        this.#sliderBar_Element.max = sliderBar_Model.max;
-        this.#sliderBar_Element.value = sliderBar_Model.value;
+        this.#sliderBar_Element.min = sliderBar_Model.getMin();
+        this.#sliderBar_Element.max = sliderBar_Model.getMax();
+        this.#sliderBar_Element.value = sliderBar_Model.getValue();
+        this.#sliderBar_Element.style.width = sliderBar_Model.getWidth();
+        this.#sliderBar_Element.style.margin = "0 auto";
     }
 
-    renderSliderBar_Element() {
-        document.body.appendChild(this.#sliderBar_Element);
+    getSliderBar_Element() {
+        return this.#sliderBar_Element;
     }
 }
 export {SliderBar_View};

@@ -8,7 +8,6 @@ class Sketchpad_Controller {
     constructor(initialSliderValue) {
         this.#sketchpad_Model = new Sketchpad_Model();
         this.#sketchpad_View = new Sketchpad_View(initialSliderValue);
-        this.#sketchpad_View.renderSketchpad_Element();
     }
 
     getSketchpad_Model() {

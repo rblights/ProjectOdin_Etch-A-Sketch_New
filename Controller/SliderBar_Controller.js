@@ -8,7 +8,6 @@ class SliderBar_Controller {
     constructor() {
         this.#sliderBar_Model = new SliderBar_Model();
         this.#sliderBar_View = new SliderBar_View(this.#sliderBar_Model);
-        this.#sliderBar_View.renderSliderBar_Element();
     }
 
     getSliderBar_Model() {
