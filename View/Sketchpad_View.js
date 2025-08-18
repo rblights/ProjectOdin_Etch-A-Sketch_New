@@ -10,6 +10,9 @@ class Sketchpad_View {
         this.#sketchpad_Element._gridSize = initialSliderValue;
 
         this.#sketchpad_Element._dimensions = this.#calcSketchpadDimensions(); 
+
+        this.#sketchpad_Element.style.display = "Flex"
+        this.#sketchpad_Element.style.flexWrap = "wrap"
         this.#sketchpad_Element.style.width = this.#sketchpad_Element.style.height = `${this.#sketchpad_Element._dimensions}px`;
         this.#sketchpad_Element.style.margin = '0 auto'
         this.#sketchpad_Element.style.backgroundColor = "aliceblue";
