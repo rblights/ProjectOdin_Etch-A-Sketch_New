@@ -24,6 +24,10 @@ class SliderBar_Model {
         return this.#value;
     }
 
+    setValue(newValue) {
+        this.#value = newValue;
+    }
+
     setWidth(newWidth) {
         this.#width = newWidth;
     }

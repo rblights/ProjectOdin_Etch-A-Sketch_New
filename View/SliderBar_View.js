@@ -16,5 +16,11 @@ class SliderBar_View {
     getSliderBar_Element() {
         return this.#sliderBar_Element;
     }
+
+    addChangeListener(handler) {
+        this.#sliderBar_Element.addEventListener("input", (event) => {
+            handler(parseInt(event.target.value));
+        });
+    }
 }
 export {SliderBar_View};
