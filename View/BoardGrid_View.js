@@ -1,12 +1,16 @@
 class BoardGrid_View {
 
+    #isDrawing = false;
     #boardGrid_Element;
-    #sketchpadDimensions
+    #sketchpadDimensions;
 
     constructor(sketchpad_Element, sketchpadDimensions, initialSliderValue) {
         this.#boardGrid_Element = sketchpad_Element;
         this.#sketchpadDimensions = sketchpadDimensions;
         this.#createBoardGrid(initialSliderValue);
+
+        this.#boardGrid_Element.addEventListener("mousedown", this.#handleMouseDown.bind(this));
+        document.addEventListener("mouseup", this.#handleMouseUp.bind(this));
     }
 
     #createBoardGrid(initialSliderValue) {
@@ -21,13 +25,31 @@ class BoardGrid_View {
             GRIDCELL.classList.add("GridCell");
             GRIDCELL.style.border = "1px solid lightgray";
             
-            GRIDCELL.addEventListener("mouseenter", this.#setCellColor);
+            GRIDCELL.addEventListener("mouseenter", this.#handleMouseEnter.bind(this));
             this.#boardGrid_Element.appendChild(GRIDCELL);
         }
     }
 
-    #setCellColor(event) {
-        event.target.style.backgroundColor = "black";
+    #handleMouseDown(event) {
+        this.#isDrawing = true;
+        if (event.target.classList.contains("GridCell")) {
+            this.#setCellColor(event.target);
+        }
+        event.preventDefault();
+    }
+
+    #handleMouseUp() {
+        this.#isDrawing = false;
+    }
+
+    #handleMouseEnter(event) {
+        if (this.#isDrawing && event.target.classList.contains("GridCell")) {
+            this.#setCellColor(event.target);
+        }
+    }
+
+    #setCellColor(cell_Element) {
+        cell_Element.style.backgroundColor = "black";
     }
 
     updateGrid(newSliderValue) {
